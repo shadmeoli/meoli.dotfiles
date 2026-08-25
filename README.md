@@ -29,9 +29,10 @@ supported through APT, DNF, Pacman, or APK. Neovim and Go use upstream binaries
 in `~/.local/opt`, keeping the setup independent of old server repositories.
 
 ## Install
+\nBecause this repository is private, authenticate with GitHub CLI or use an SSH remote before cloning. The shared Git config delegates GitHub HTTPS credentials to `gh auth git-credential`; no token is stored here.
 
 ```sh
-git clone YOUR_GIT_REMOTE ~/.dotfiles
+git clone https://github.com/shadrackmeoli/meoli.dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./bootstrap.sh
 exec zsh

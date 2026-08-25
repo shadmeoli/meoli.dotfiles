@@ -40,6 +40,10 @@
 	side-by-side = false
 	line-numbers = true
 
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+
 [alias]
 	lg = log --oneline --decorate --graph
 	last = log -1 HEAD --stat
