@@ -32,7 +32,7 @@ in `~/.local/opt`, keeping the setup independent of old server repositories.
 \nBecause this repository is private, authenticate with GitHub CLI or use an SSH remote before cloning. The shared Git config delegates GitHub HTTPS credentials to `gh auth git-credential`; no token is stored here.
 
 ```sh
-git clone https://github.com/shadrackmeoli/meoli.dotfiles.git ~/.dotfiles
+git clone https://github.com/shadmeoli/meoli.dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./bootstrap.sh
 exec zsh
