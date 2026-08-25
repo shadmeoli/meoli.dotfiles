@@ -91,12 +91,3 @@ git pull --rebase
 Inside tmux, press `C-a I` to install plugins and `C-a r` to reload the config.
 Neovim plugins install automatically on first launch.
 
-## Intentionally excluded
-
-- Desktop apps and terminal-emulator configuration
-- GUI clipboard packages; tmux and Neovim use terminal/OSC 52 behavior over SSH
-- Browser/editor state, caches, histories, WakaTime credentials, pnpm auth,
-  SSH keys, GPG keys, tokens, and other secrets
-- Work-only hostnames and aliases
-- Nix, Android, WireGuard, Docker, Coder, Cloudflared, and ngrok
-- Rust, Cargo, rustup, rust-analyzer, rustfmt, and Clippy
