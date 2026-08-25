@@ -1,0 +1,3 @@
+# Copy to ~/.config/git/local.gitconfig, then set the identity for this machine:
+# git config --file ~/.config/git/local.gitconfig user.name "Your Name"
+# git config --file ~/.config/git/local.gitconfig user.email "you@example.com"

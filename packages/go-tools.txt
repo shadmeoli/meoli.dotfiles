@@ -1,0 +1,11 @@
+# module/package@version; latest keeps a newly bootstrapped machine current.
+golang.org/x/tools/gopls@latest
+golang.org/x/tools/cmd/goimports@latest
+github.com/go-delve/delve/cmd/dlv@latest
+github.com/air-verse/air@latest
+mvdan.cc/gofumpt@latest
+github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+gotest.tools/gotestsum@latest
+golang.org/x/vuln/cmd/govulncheck@latest
+github.com/google/go-licenses@latest
+github.com/jesseduffield/lazygit@latest

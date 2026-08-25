@@ -1,0 +1,4 @@
+# Copy to ~/.config/zsh/local.zsh for aliases that only make sense on one
+# machine or network. The real file is intentionally ignored.
+# alias workbox='ssh user@example.internal'
+# alias project='cd "$HOME/src/project"'

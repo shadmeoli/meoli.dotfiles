@@ -1,0 +1,11 @@
+# Machine-local configuration and credentials
+config/zsh/local.zsh
+config/zsh/env.local.zsh
+config/git/local.gitconfig
+
+# Generated/editor state
+.DS_Store
+*.swp
+*.swo
+*.tmp
+config/tmux/plugins/

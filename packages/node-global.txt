@@ -1,0 +1,10 @@
+# Installed after fnm provisions the current Node LTS.
+pnpm
+typescript
+typescript-language-server
+@biomejs/biome
+eslint_d
+markdownlint-cli
+@devcontainers/cli
+wrangler
+@openai/codex

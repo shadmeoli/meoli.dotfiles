@@ -1,0 +1,43 @@
+format = "$directory$git_branch$nodejs$python$golang$cmd_duration$character"
+
+[directory]
+style = "blue"
+read_only = " ro"
+truncation_length = 1
+truncate_to_repo = true
+
+[git_branch]
+symbol = "git:"
+format = "[$symbol$branch]($style) "
+style = "bright-black"
+
+[git_status]
+disabled = true
+
+[git_metrics]
+disabled = true
+
+[nodejs]
+symbol = "node:"
+format = "[$symbol($version )]($style)"
+style = "green"
+
+[python]
+symbol = "py:"
+format = "[$symbol($version )(($virtualenv) )]($style)"
+style = "yellow"
+
+[golang]
+symbol = "go:"
+format = "[$symbol($version )]($style)"
+style = "cyan"
+
+[cmd_duration]
+min_time = 3000
+format = "[$duration]($style) "
+style = "yellow"
+
+[character]
+success_symbol = "[>](bright-black)"
+error_symbol = "[>](bold red)"
+vimcmd_symbol = "[<](bright-black)"

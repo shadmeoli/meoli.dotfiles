@@ -1,0 +1,46 @@
+[user]
+	useConfigOnly = true
+
+[core]
+	editor = nvim
+	pager = ~/.local/bin/dotfiles-git-pager
+
+[include]
+	path = ~/.config/git/local.gitconfig
+
+[init]
+	defaultBranch = main
+
+[push]
+	autoSetupRemote = true
+	default = current
+	followTags = true
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+	missingCommitsCheck = warn
+
+[rerere]
+	enabled = true
+	autoUpdate = true
+
+[diff]
+	context = 3
+	renames = copies
+	interHunkContext = 10
+
+[merge]
+	conflictStyle = zdiff3
+
+[delta]
+	navigate = true
+	side-by-side = false
+	line-numbers = true
+
+[alias]
+	lg = log --oneline --decorate --graph
+	last = log -1 HEAD --stat
+	unstage = restore --staged
