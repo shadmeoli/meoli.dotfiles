@@ -14,6 +14,8 @@ typeset -U path PATH
 path=(
   "$HOME/.local/bin"
   "$HOME/.local/opt/nvim/bin"
+  "/opt/nvim-linux-x86_64/bin"
+  "/opt/nvim-linux-arm64/bin"
   "$HOME/.local/opt/go/bin"
   "$BUN_INSTALL/bin"
   "$FNM_DIR"

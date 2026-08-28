@@ -22,6 +22,9 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 ZCOMET_HOME="$XDG_DATA_HOME/zcomet"
+if [[ ! -r "$ZCOMET_HOME/zcomet.zsh" && -r "$HOME/.zcomet/zcomet.zsh" ]]; then
+  ZCOMET_HOME="$HOME/.zcomet"
+fi
 if [[ -r "$ZCOMET_HOME/zcomet.zsh" ]]; then
   source "$ZCOMET_HOME/zcomet.zsh"
   zcomet load zsh-users/zsh-autosuggestions

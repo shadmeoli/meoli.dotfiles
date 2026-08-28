@@ -54,7 +54,7 @@ as_root() {
   if ((EUID == 0)); then
     run "$@"
   elif have sudo; then
-    as_root "$@"
+    run sudo "$@"
   else
     warn 'Root privileges are required, but sudo is unavailable.'
     return 1
@@ -143,6 +143,12 @@ install_shell_plugins() {
   log 'Installing shell and tmux plugin managers'
   local zcomet_dir="${XDG_DATA_HOME:-$HOME/.local/share}/zcomet"
   local tpm_dir="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/plugins/tpm"
+  if [[ ! -r "$zcomet_dir/zcomet.zsh" && -r "$HOME/.zcomet/zcomet.zsh" ]]; then
+    zcomet_dir="$HOME/.zcomet"
+  fi
+  if [[ ! -x "$tpm_dir/tpm" && -x "$HOME/.config/tmux/plugins/tpm/tpm" ]]; then
+    tpm_dir="$HOME/.config/tmux/plugins/tpm"
+  fi
   [[ -d "$zcomet_dir/.git" ]] || run git clone --depth 1 https://github.com/agkozak/zcomet.git "$zcomet_dir"
   [[ -d "$tpm_dir/.git" ]] || run git clone --depth 1 https://github.com/tmux-plugins/tpm "$tpm_dir"
   if [[ -x "$tpm_dir/bin/install_plugins" ]]; then
