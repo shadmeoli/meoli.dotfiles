@@ -9,6 +9,9 @@ alias path="print -l \${(s.:.)PATH}"
 alias json="jq '.'"
 alias py='python3'
 
+# env/cli specific aliases 
+alias kibao="~/./kibao.sh"
+
 if command -v eza >/dev/null 2>&1; then
   alias ls='eza -al --grid --no-user --color=always --long --git --no-filesize --icons=auto --no-time --no-permissions'
   alias l='eza -al --icons=auto'
