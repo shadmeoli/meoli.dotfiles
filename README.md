@@ -4,6 +4,16 @@ A headless-first terminal environment for Linux workstations, VPS hosts, and
 remote development servers. It intentionally contains no desktop applications,
 GUI configuration, VNC/remote-desktop setup, credentials, or Rust toolchain.
 
+
+
+#### Remote setup
+```sh
+ curl -fsSL \
+    https://raw.githubusercontent.com/shadmeoli/meoli.dotfiles/main/install.sh \
+    -o /tmp/meoli-install.sh
+```
+
+
 ## What it installs
 
 - Zsh with Zcomet, autosuggestions, syntax highlighting, and `fzf-tab`
@@ -16,9 +26,6 @@ GUI configuration, VNC/remote-desktop setup, credentials, or Rust toolchain.
 - Bun
 - current stable Go plus `gopls`, Delve, goimports, gofumpt, Air,
   golangci-lint, gotestsum, govulncheck, and go-licenses
-- Black and isort through pipx
-
-
 
 
 Neovim's Mason configuration additionally provisions the Lua and TypeScript

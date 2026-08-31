@@ -10,6 +10,7 @@ alias json="jq '.'"
 alias py='python3'
 
 # env/cli specific aliases 
+alias vpn="wg-quick up local"
 alias kibao="~/./kibao.sh"
 
 if command -v eza >/dev/null 2>&1; then
