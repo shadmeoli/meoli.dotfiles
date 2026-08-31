@@ -83,13 +83,13 @@ install_system_packages() {
 
   if have apt-get; then
     as_root apt-get update
-    as_root apt-get install -y zsh git curl ca-certificates tmux fzf ripgrep eza bat jq unzip tar build-essential python3 python3-venv pipx
+    as_root apt-get install -y zsh git curl ca-certificates tmux fzf ripgrep eza bat jq unzip tar build-essential
   elif have dnf; then
-    as_root dnf install -y zsh git curl ca-certificates tmux fzf ripgrep eza bat jq unzip tar gcc gcc-c++ make python3 pipx
+    as_root dnf install -y zsh git curl ca-certificates tmux fzf ripgrep eza bat jq unzip tar gcc gcc-c++ make 
   elif have pacman; then
-    as_root pacman -Syu --needed --noconfirm zsh git curl ca-certificates tmux fzf ripgrep eza bat jq unzip tar base-devel python python-pipx
+    as_root pacman -Syu --needed --noconfirm zsh git curl ca-certificates tmux fzf ripgrep eza bat jq unzip tar base-devel
   elif have apk; then
-    as_root apk add zsh git curl ca-certificates tmux fzf ripgrep eza bat jq unzip tar build-base python3 py3-pip pipx
+    as_root apk add zsh git curl ca-certificates tmux fzf ripgrep eza bat jq unzip tar build-base 
   else
     warn 'Unsupported package manager. Install the packages listed in README.md manually.'
   fi
@@ -263,19 +263,13 @@ install_go() {
   done < "$DOTFILES_DIR/packages/go-tools.txt"
 }
 
-install_python_tools() {
-  have pipx || { warn 'pipx is unavailable; skipping Black and isort.'; return 0; }
-  log 'Installing Python formatters'
-  run pipx install --force black
-  run pipx install --force isort
-}
+
 
 install_languages() {
   ((INSTALL_LANGUAGES)) || return 0
   install_fnm_and_node
   install_bun
   install_go
-  install_python_tools
 }
 
 main() {

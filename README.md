@@ -18,6 +18,9 @@ GUI configuration, VNC/remote-desktop setup, credentials, or Rust toolchain.
   golangci-lint, gotestsum, govulncheck, and go-licenses
 - Black and isort through pipx
 
+
+
+
 Neovim's Mason configuration additionally provisions the Lua and TypeScript
 language servers, `gopls`, Stylua, and `eslint_d` when Neovim starts. Rust and
 rust-analyzer are deliberately absent.
