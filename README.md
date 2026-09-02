@@ -4,15 +4,18 @@ A headless-first terminal environment for Linux workstations, VPS hosts, and
 remote development servers. It intentionally contains no desktop applications,
 GUI configuration, VNC/remote-desktop setup, credentials, or Rust toolchain.
 
+## Remote setup
 
-
-#### Remote setup
 ```sh
- curl -fsSL \
-    https://raw.githubusercontent.com/shadmeoli/meoli.dotfiles/main/install.sh \
-    -o /tmp/meoli-install.sh
+curl -fsSL \
+  https://raw.githubusercontent.com/shadmeoli/meoli.dotfiles/main/install.sh \
+  -o /tmp/meoli-install.sh
+bash /tmp/meoli-install.sh
 ```
 
+The installer clones or updates `~/.dotfiles`, initializes the Neovim and
+tmux submodules, and runs the bootstrap. Set `DOTFILES_INSTALL_DIR` to use a
+different checkout location.
 
 ## What it installs
 
@@ -39,14 +42,18 @@ supported through APT, DNF, Pacman, or APK. Neovim and Go use upstream binaries
 in `~/.local/opt`, keeping the setup independent of old server repositories.
 
 ## Install
-\nBecause this repository is private, authenticate with GitHub CLI or use an SSH remote before cloning. The shared Git config delegates GitHub HTTPS credentials to `gh auth git-credential`; no token is stored here.
 
 ```sh
-git clone https://github.com/shadmeoli/meoli.dotfiles.git ~/.dotfiles
+git clone --recurse-submodules https://github.com/shadmeoli/meoli.dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./bootstrap.sh
 exec zsh
 ```
+
+Neovim and tmux are pinned submodules sourced from
+`github.com/shadmeoli/nvim` and `github.com/shadmeoli/tmux`. If the
+repository was cloned without `--recurse-submodules`, the normal bootstrap
+initializes them automatically.
 
 The script is idempotent. Existing managed files are moved into a timestamped
 `~/.dotfiles-backup/` directory before symlinks are created.
@@ -95,9 +102,9 @@ private hostnames, work paths, and secrets.
 ```sh
 cd ~/.dotfiles
 git pull --rebase
+git submodule update --init --recursive
 ./bootstrap.sh
 ```
 
 Inside tmux, press `C-a I` to install plugins and `C-a r` to reload the config.
 Neovim plugins install automatically on first launch.
-

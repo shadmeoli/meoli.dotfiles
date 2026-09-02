@@ -139,6 +139,26 @@ link_dotfiles() {
   fi
 }
 
+ensure_submodules() {
+  if [[ -f "$DOTFILES_DIR/config/nvim/init.lua" &&
+        -f "$DOTFILES_DIR/config/tmux/tmux.conf" ]]; then
+    return 0
+  fi
+
+  [[ -f "$DOTFILES_DIR/.gitmodules" ]] || {
+    warn 'Neovim or tmux configuration is missing and no .gitmodules file was found.'
+    return 1
+  }
+
+  if ((LINK_ONLY)); then
+    warn 'Submodules are missing. Run: git submodule update --init --recursive'
+    return 1
+  fi
+
+  log 'Initializing Neovim and tmux submodules'
+  run git -C "$DOTFILES_DIR" submodule update --init --recursive
+}
+
 install_shell_plugins() {
   log 'Installing shell and tmux plugin managers'
   local zcomet_dir="${XDG_DATA_HOME:-$HOME/.local/share}/zcomet"
@@ -275,6 +295,7 @@ install_languages() {
 main() {
   [[ "$(uname -s)" == Linux ]] || { printf 'This headless profile currently supports Linux only.\n' >&2; exit 1; }
   install_system_packages
+  ensure_submodules
   link_dotfiles
   if ((LINK_ONLY)); then
     log 'Link-only bootstrap complete.'
