@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 set -u
 
 failures=0
@@ -19,13 +19,13 @@ check 'Interactive Zsh loads highlighting, autosuggestions, Starship, and Neovim
 check 'Starship uses the original arrow prompt' \
   grep -Fq 'success_symbol = "[❯](bright-black)"' "$HOME/.config/starship.toml"
 check 'Starship keeps Rust removed' \
-  bash -c '! grep -Fq '\''$rust'\'' "$1" && ! grep -Fq '\''[rust]'\'' "$1"' \
+  sh -c '! grep -Fq '\''$rust'\'' "$1" && ! grep -Fq '\''[rust]'\'' "$1"' \
     _ "$HOME/.config/starship.toml"
 check 'Zcomet exists at a supported path' \
-  bash -c 'test -r "$1/.local/share/zcomet/zcomet.zsh" || test -r "$1/.zcomet/zcomet.zsh"' \
+  sh -c 'test -r "$1/.local/share/zcomet/zcomet.zsh" || test -r "$1/.zcomet/zcomet.zsh"' \
     _ "$HOME"
 check 'TPM exists at a supported path' \
-  bash -c 'test -x "$1/.local/share/tmux/plugins/tpm/tpm" || test -x "$1/.config/tmux/plugins/tpm/tpm"' \
+  sh -c 'test -x "$1/.local/share/tmux/plugins/tpm/tpm" || test -x "$1/.config/tmux/plugins/tpm/tpm"' \
     _ "$HOME"
 
 socket="dotfiles-regression-$$"
