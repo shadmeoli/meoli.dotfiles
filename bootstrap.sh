@@ -62,10 +62,10 @@ as_root() {
 }
 
 download_and_run() {
-  local url="$1"
-  shift
+  local interpreter="$1" url="$2"
+  shift 2
   if ((DRY_RUN)); then
-    printf '  + download and run %s' "$url"
+    printf '  + download %s and run with %s' "$url" "$interpreter"
     printf ' %q' "$@"
     printf '\n'
     return 0
@@ -73,7 +73,7 @@ download_and_run() {
   local temp_script
   temp_script="$(mktemp)"
   curl -fsSL "$url" -o "$temp_script"
-  run bash "$temp_script" "$@"
+  run "$interpreter" "$temp_script" "$@"
   rm -f "$temp_script"
 }
 
@@ -179,7 +179,7 @@ install_shell_plugins() {
 install_starship() {
   if have starship && ((FORCE_TOOLS == 0)); then return 0; fi
   log 'Installing Starship'
-  download_and_run https://starship.rs/install.sh -y -b "$HOME/.local/bin"
+  download_and_run sh https://starship.rs/install.sh -y -b "$HOME/.local/bin"
 }
 
 install_neovim() {
@@ -217,7 +217,7 @@ install_fnm_and_node() {
       printf '  + fnm install --lts and install packages from %q\n' "$DOTFILES_DIR/packages/node-global.txt"
       return 0
     fi
-    download_and_run https://fnm.vercel.app/install --install-dir "$fnm_dir" --skip-shell
+    download_and_run bash https://fnm.vercel.app/install --install-dir "$fnm_dir" --skip-shell
   fi
   export PATH="$fnm_dir:$PATH"
   eval "$(fnm env --shell bash)"
@@ -238,7 +238,7 @@ install_fnm_and_node() {
 install_bun() {
   if have bun && ((FORCE_TOOLS == 0)); then return 0; fi
   log 'Installing Bun'
-  BUN_INSTALL="${BUN_INSTALL:-$HOME/.bun}" download_and_run https://bun.com/install
+  BUN_INSTALL="${BUN_INSTALL:-$HOME/.bun}" download_and_run bash https://bun.com/install
 }
 
 install_go() {
