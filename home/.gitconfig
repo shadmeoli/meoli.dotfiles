@@ -1,5 +1,7 @@
 [user]
 	useConfigOnly = true
+	email = shadrack.meoli@ifkafin.com
+	name = shadrackmeoli
 
 [core]
 	editor = nvim
