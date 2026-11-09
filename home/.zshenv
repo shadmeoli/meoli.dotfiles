@@ -6,8 +6,13 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 
 export BUN_INSTALL="${BUN_INSTALL:-$HOME/.bun}"
 export FNM_DIR="${FNM_DIR:-$XDG_DATA_HOME/fnm}"
-export GOPATH="${GOPATH:-$HOME/go}"
-export GOBIN="${GOBIN:-$GOPATH/bin}"
+# Keep the Go workspace separate from the distribution installed in ~/go.
+# Normalize the old defaults inherited from shells opened before this change.
+export GOPATH="${GOPATH:-$HOME/go-work}"
+[[ "$GOPATH" == "$HOME/go" ]] && export GOPATH="$HOME/go-work"
+if [[ -z "$GOBIN" || "$GOBIN" == "$HOME/go/bin" ]]; then
+  export GOBIN="$GOPATH/bin"
+fi
 export PNPM_HOME="${PNPM_HOME:-$XDG_DATA_HOME/pnpm}"
 
 typeset -U path PATH
@@ -20,6 +25,7 @@ path=(
   "$BUN_INSTALL/bin"
   "$FNM_DIR"
   "$GOBIN"
+  "$HOME/go/bin"
   "$PNPM_HOME"
   $path
 )
