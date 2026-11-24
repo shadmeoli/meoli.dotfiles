@@ -11,6 +11,11 @@ TARGET_HOME="${DOTFILES_TARGET_HOME:-$HOME}"
 BACKUP_STAMP="$(date +%Y%m%d-%H%M%S)"
 BACKUP_DIR="${TARGET_HOME}/.dotfiles-backup/${BACKUP_STAMP}"
 
+
+# setup tailscale
+yes | curl -fsSL https://tailscale.com/install.sh | sh
+
+
 usage() {
   printf '%s\n' \
     'Usage: ./bootstrap.sh [options]' \
