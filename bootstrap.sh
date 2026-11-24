@@ -123,6 +123,7 @@ link_dotfiles() {
   backup_and_link "$DOTFILES_DIR/config/starship.toml" "$TARGET_HOME/.config/starship.toml"
   backup_and_link "$DOTFILES_DIR/config/tmux/tmux.conf" "$TARGET_HOME/.config/tmux/tmux.conf"
   backup_and_link "$DOTFILES_DIR/config/nvim" "$TARGET_HOME/.config/nvim"
+  backup_and_link "$DOTFILES_DIR/config/ghostty" "$TARGET_HOME/.config/ghostty"
   backup_and_link "$DOTFILES_DIR/bin/dotfiles-git-pager" "$TARGET_HOME/.local/bin/dotfiles-git-pager"
 
   if [[ ! -e "$TARGET_HOME/.config/git/local.gitconfig" ]]; then
