@@ -1,3 +1,5 @@
+export PATH=/home/shadrack/.opencode/bin:$PATH
+
 # Interactive, headless-friendly Zsh configuration.
 [[ -o interactive ]] || return
 
@@ -48,8 +50,14 @@ source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 # opencode
 export PATH=/home/meoli/.opencode/bin:$PATH
 
+
 # >>> grok installer >>>
 export PATH="$HOME/.grok/bin:$PATH"
 fpath=(~/.grok/completions/zsh $fpath)
 autoload -Uz compinit && compinit -C
 # <<< grok installer <<<
+
+. "$HOME/.local/share/../bin/env"
+
+# opencode
+export PATH=/home/shadrack/.opencode/bin:$PATH

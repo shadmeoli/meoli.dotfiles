@@ -1,122 +1,40 @@
+term=xterm-256color
+
+# theme="Atom"
+# theme="/home/meoli/.config/ghostty/themes/monokai-og.toml"
+# theme="3024 Night"
+# theme="Black Metal"
+# theme="Ayu Mirage"
+# theme="Atom"
+
+theme = Jetbrains.toml
+# theme="/home/meoli/.config/ghostty/themes/poimandres-light.toml"
+# theme="/home/meoli/.config/ghostty/themes/xcodetheme.toml"
+# theme="/home/meoli/.config/ghostty/themes/poimandres.toml"
+# theme = "Cyberdream"
+# theme="Gruvbox Dark Hard"
+# theme="Black Metal"
+# theme="Nvim Dark"
+# theme="Nvim Light"
+# theme="Rose Pine"
+# theme="Catppuccin Mocha"
+# theme="Xcode Dark hc"
+# theme="Solarized Dark Higher Contrast"
+# theme="GitHub Dark"
 # theme = "Solarized Osaka Night"
 
-font-family="GeistMono Nerd Font"
-background-opacity=0.95
-background-blur=true
 
-# gtk-titlebar-style = tabs
-gtk-titlebar = false
-window-decoration = server
+# font-family="JetBrainsMono Nerd Font"
+# font-family="GeistMono Nerd Font Mono"
+font-family="ZedMono Nerd Font"
+# font-family="GeistMono Nerd Font"
+# font-family="FiraCode Nerd Font"
+# font-family="Terminess Nerd Font Mono"
 
-# Terminal
-scrollback-limit = 50000000
+#  background-opacity=0.95
 
-# Working directory inheritance
-window-inherit-working-directory = true
-tab-inherit-working-directory = true
-split-inherit-working-directory = true
 
-# Clipboard
-clipboard-read = allow
-clipboard-write = allow
 
-# ─────────────────────────────────────────────
-# Appearance: Catppuccin Mocha
-# (alternatively: theme = Catppuccin Mocha)
-# ─────────────────────────────────────────────
 
-background = #1e1e2e
-foreground = #cdd6f4
-cursor-color = #f5e0dc
-selection-background = #585b70
-selection-foreground = #cdd6f4
 
-palette = 0=#45475a
-palette = 1=#f38ba9
-palette = 2=#a6e3a1
-palette = 3=#f9e2af
-palette = 4=#89b4fa
-palette = 5=#f5c2e7
-palette = 6=#94e2d5
-palette = 7=#bac2de
-palette = 8=#585b70
-palette = 9=#f38ba8
-palette = 10=#a6e3a1
-palette = 11=#f9e2af
-palette = 12=#89b4fa
-palette = 13=#f5c2e7
-palette = 14=#94e2d5
-palette = 15=#a6adc8
 
-# ─────────────────────────────────────────────
-# Prefix: Ctrl+A (tmux-style)
-# ─────────────────────────────────────────────
-
-# Prefix twice sends a literal Ctrl+A to the shell
-keybind = ctrl+a>ctrl+a=text:\x01
-keybind = ctrl+a>r=reload_config
-
-# Splits
-# keybind = ctrl+a>|=new_split:right
-keybind = ctrl+a>shift+backslash=new_split:right
-
-keybind = ctrl+a>minus=new_split:down
-keybind = ctrl+a>m=toggle_split_zoom
-
-# Pane navigation (prefix + hjkl)
-keybind = ctrl+a>h=goto_split:left
-keybind = ctrl+a>j=goto_split:down
-keybind = ctrl+a>k=goto_split:up
-keybind = ctrl+a>l=goto_split:right
-
-# Pane resizing (pixels, ~5 cells)
-keybind = ctrl+a>shift+h=resize_split:left,40
-keybind = ctrl+a>shift+j=resize_split:down,40
-keybind = ctrl+a>shift+k=resize_split:up,40
-keybind = ctrl+a>shift+l=resize_split:right,40
-
-# ─────────────────────────────────────────────
-# Direct (non-prefix) navigation
-# ─────────────────────────────────────────────
-
-# Panes
-keybind = alt+left=goto_split:left
-keybind = alt+down=goto_split:down
-keybind = alt+up=goto_split:up
-keybind = alt+right=goto_split:right
-
-# Tabs
-keybind = shift+left=previous_tab
-keybind = shift+right=next_tab
-keybind = alt+shift+h=previous_tab
-keybind = alt+shift+l=next_tab
-
-# ─────────────────────────────────────────────
-# Scrollback key table (prefix + [)
-# Requires a Ghostty version with key table support (1.3+)
-# ─────────────────────────────────────────────
-
-keybind = ctrl+a>left_bracket=activate_key_table:scrollback
-
-keybind = scrollback/escape=deactivate_key_table
-keybind = scrollback/q=deactivate_key_table
-
-# Line scrolling
-keybind = scrollback/k=scroll_page_lines:-1
-keybind = scrollback/j=scroll_page_lines:1
-
-# Half/full page
-keybind = scrollback/ctrl+u=scroll_page_fractional:-0.5
-keybind = scrollback/ctrl+d=scroll_page_fractional:0.5
-keybind = scrollback/page_up=scroll_page_up
-keybind = scrollback/page_down=scroll_page_down
-
-# Jump to ends
-keybind = scrollback/g=scroll_to_top
-keybind = scrollback/shift+g=scroll_to_bottom
-
-# Search
-keybind = scrollback/slash=start_search
-
-# Swallow everything else so stray keys don't reach the shell
-keybind = scrollback/catch_all=ignore
